@@ -18,7 +18,9 @@ package model;
 
 import view.MainWindow;
 import java.util.HashMap;
+import pieces.BarPiece;
 import pieces.LPiece;
+import pieces.SquarePiece;
 
 /**
  * Clase que implementa o comportamento do xogo do Tetris
@@ -176,8 +178,19 @@ public class Game {
      * Crea unha nova peza e a establece como peza actual do xogo
      */
     private void createNewPiece() {
-        int pieceType = new java.util.Random().nextInt(2);
-        currentPiece = new LPiece(this);
+        int pieceType = new java.util.Random().nextInt(3);
+        switch(pieceType) {
+            case 0:
+                currentPiece=new SquarePiece(this);
+                break;
+            case 1: 
+                currentPiece = new LPiece(this);
+                break;
+            case 2:
+                currentPiece = new BarPiece(this);
+                break;
+        }
+        
     }
 
     /**
